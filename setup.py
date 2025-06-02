@@ -7,7 +7,7 @@ setup(
     author='Your Name',
     author_email='your@email.com',
     url='https://github.com/yourusername/selective_search_pytorch',
-    packages=find_packages(include=['selective_search', 'selective_search.*']),
+    packages=find_packages(include=['selective_search', 'selective_search.*', 'opencv_custom']),
     package_data={
         'selective_search': ['../opencv_custom/selectivesearchsegmentation_opencv_custom_.so']
     },

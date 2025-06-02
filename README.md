@@ -59,19 +59,19 @@ reg_lab_np = reg_lab.squeeze(0).squeeze(1).cpu().numpy()  # Shape: (levels, H, W
 
 # Visualize segmentation levels with smoothness metric
 for i in range(reg_lab_np.shape[0]):
-    perimetro_norm = calcular_perimetro_normalizado(reg_lab_np[i])
-    plt.figure(figsize=(6, 6))
+    perimetro_norm = calculate_normalized_perimeter(reg_lab_np[i])
+	plt.figure(figsize=(6, 6))
     plt.imshow(reg_lab_np[i], cmap='nipy_spectral')
     plt.title(f'Segmentation Level {i}\nNormalized Perimeter = {perimetro_norm:.4f}')
     plt.axis('off')
     plt.show()
 
 # Select the smoothest mask
-mascara_suave = select_softness(reg_lab_np, level=1)
-mascara_suave_uint8 = mascara_suave.astype(np.uint8)
+smooth_mask = select_by_softness(reg_lab_np, level=1)
+smooth_maske_uint8 = smooth_mask.astype(np.uint8)
 
 # Extract bounding boxes from mask
-bboxes = extrair_bboxes_per_classe(mascara_suave_uint8)
+bboxes = extract_bboxes_per_class(smooth_maske_uint8)
 
 # Visualize bounding boxes on original image
 plt.subplot(1, 2, 1)
