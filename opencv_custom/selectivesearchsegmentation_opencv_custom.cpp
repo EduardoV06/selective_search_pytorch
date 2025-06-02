@@ -28,7 +28,7 @@ extern "C" int process(
 )
 {
     if(seed >= 0)
-        srand((unsigned int32_t) seed);
+        srand((uint32_t) seed);
 
     cv::ximgproc::segmentation::SelectiveSearchSegmentationImpl algo;
     algo.setBaseImage(cv::Mat(img_rows, img_cols, CV_8UC3, img_ptr));
