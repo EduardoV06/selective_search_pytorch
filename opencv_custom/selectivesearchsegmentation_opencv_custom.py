@@ -2,10 +2,18 @@ import os
 import ctypes
 import torch
 
+import importlib.resources as resources
+from pathlib import Path
+import opencv_custom
+
+so_path = resources.files(opencv_custom).joinpath("selectivesearchsegmentation_opencv_custom_.so")
+
+
 class SelectiveSearchOpenCVCustom(torch.nn.Module):
     def __init__(self, preset = 'fast', remove_duplicate_boxes = False, lib_path = 'selectivesearchsegmentation_opencv_custom_.so', max_num_rects = 4096, max_num_planes = 16, max_num_bit = 64, base_k = 0, inc_k = 0, sigma = 0):
         super().__init__()
-        self.bind = ctypes.CDLL(lib_path)
+        # self.bind = ctypes.CDLL(lib_path)
+        self.bind = ctypes.CDLL(str(so_path))
         self.bind.process.argtypes = [
             ctypes.c_void_p, ctypes.c_int, ctypes.c_int, 
             ctypes.c_void_p, ctypes.c_void_p,
