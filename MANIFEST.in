@@ -1,1 +1,2 @@
 include opencv_custom/selectivesearchsegmentation_opencv_custom_.so
+include opencv_custom/selectivesearchsegmentation_opencv_custom_.py
