@@ -9,7 +9,7 @@ This is a **fork** of the original repository [`vadimkantorov/selective_search_p
 You can install this package **directly from GitHub** using pip — no need to clone or compile:
 
 ```bash
-pip install git+https://github.com/yourusername/selective_search_pytorch.git
+pip install git+https://github.com/EduardoV06/selective_search_pytorch.git
 ```
 
 ## What’s new in this fork?
