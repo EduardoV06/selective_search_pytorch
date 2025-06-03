@@ -9,8 +9,14 @@ setup(
     url='https://github.com/yourusername/selective_search_pytorch',
     # packages=find_packages(include=['selective_search', 'selective_search.*', 'opencv_custom', 'opencv_custom.*']),
     packages=find_packages(),
+    # package_data={
+    #     'selective_search': ['../opencv_custom/selectivesearchsegmentation_opencv_custom_.so']
+    # },
     package_data={
-        'selective_search': ['../opencv_custom/selectivesearchsegmentation_opencv_custom_.so']
+        'opencv_custom': [
+            'selectivesearchsegmentation_opencv_custom.py',
+            'selectivesearchsegmentation_opencv_custom_.so'
+        ]
     },
     include_package_data=True,
     install_requires=[
